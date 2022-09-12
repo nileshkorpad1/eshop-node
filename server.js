@@ -19,7 +19,7 @@ const secretKey = process.env.STRIPE_SECRET_KEY;
 console.log(secretKey);
 dotenv.config();
 const stripe2 = new Stripe(`${secretKey}`, {
-  apiVersion: "2022-09-08",
+  apiVersion: "2022-08-01",
   typescript: true,
 });
 // Connect to MongoDB
@@ -61,8 +61,6 @@ app.post("/api/checkout", async (req, res) => {
         amount: Math.ceil(order.itemsPrice) * 100,
         currency: "cad",
         customer: customer.id,
-
-
       },
       {
         idempotency_key
